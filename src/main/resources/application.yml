@@ -2,7 +2,10 @@ spring:
   batch:
     job:
       enabled: true
-      names: BASIC_JOB
+      #names: BASIC_JOB
+      names: IOS_APP_REVIEW_JOB
+    chunk-size: 7 # Batch chunk size.
+    max-threads: 3 # Multi-threaded service requests control - setting default to 1 for simplicity
   database:
     batch-db:
       driver-class-name: org.h2.Driver

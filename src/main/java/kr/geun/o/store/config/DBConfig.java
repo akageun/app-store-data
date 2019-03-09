@@ -4,8 +4,6 @@ import kr.geun.o.store.config.annotation.Store;
 import org.h2.Driver;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.batch.core.configuration.annotation.BatchConfigurer;
-import org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,7 +17,6 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
-import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -32,20 +29,8 @@ import javax.sql.DataSource;
 public class DBConfig implements InitializingBean {
 
 	@Autowired
-	@Qualifier(value = ConstName.STORE_BEAN_NM)
+	@Qualifier(value = DBConfig.ConstName.STORE_BEAN_NM)
 	private DataSource storeDataSource;
-
-	@Bean
-	public BatchConfigurer batchConfig(@Autowired @Qualifier(value = ConstName.BATCH_BEAN_NM) DataSource batchDataSource,
-		@Autowired @Qualifier(value = ConstName.BATCH_MANAGER) DataSourceTransactionManager transactionManager) {
-
-		return new DefaultBatchConfigurer(batchDataSource) {
-			@Override
-			public PlatformTransactionManager getTransactionManager() {
-				return transactionManager;
-			}
-		};
-	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {

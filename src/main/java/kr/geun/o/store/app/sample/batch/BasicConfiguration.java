@@ -1,4 +1,4 @@
-package kr.geun.o.store.app.ios.review.batch;
+package kr.geun.o.store.app.sample.batch;
 
 import kr.geun.o.store.app.ios.review.repo.AppStoreReviewRepo;
 import lombok.RequiredArgsConstructor;
