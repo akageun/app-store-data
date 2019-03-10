@@ -37,6 +37,12 @@ public class IosAppReviewItemReader implements ItemReader<IosAppReviewPreVO>, In
 		log.info("Reader Size : {} ", itemList.size());
 	}
 
+	//country, id, pageS
+	private final String URL_FORMAT = "https://itunes.apple.com/%s/rss/customerreviews/id=%s/sortBy=mostRecent/page=%s/xml";
+
+	private final int START_PAGE_NUM = 1;
+	private final int END_PAGE_NUM = 10;
+
 	private LinkedList<IosAppReviewPreVO> getList() {
 		return IntStream.rangeClosed(0, 150).mapToObj(i -> IosAppReviewPreVO.builder().tmpValue(i).build()).collect(
 			Collectors.toCollection(LinkedList::new));
