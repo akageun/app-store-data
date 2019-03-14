@@ -38,11 +38,15 @@ public class IosAppRankItemReader implements ItemReader<IosAppRankPreVO>, Initia
 	}
 
 	//country, id, count
+	//https://rss.itunes.apple.com/api/v1/kr/ios-apps/top-grossing/all/100/explicit.json
 	private final String URL_FORMAT = "https://itunes.apple.com/%s/rss/%s/limit=%d/xml";
 
-	private final int MAX_RANK_VALUe = 100;
+	private final int MAX_RANK_VALUE = 100;
 
 	private LinkedList<IosAppRankPreVO> getList() {
+
+		String.format(URL_FORMAT, "", "", MAX_RANK_VALUE);
+
 		return IntStream.rangeClosed(0, 150).mapToObj(i -> IosAppRankPreVO.builder().tmpValue(i).build()).collect(
 			Collectors.toCollection(LinkedList::new));
 	}
