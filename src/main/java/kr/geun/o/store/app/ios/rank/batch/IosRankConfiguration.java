@@ -1,10 +1,10 @@
-package kr.geun.o.store.app.ios.rank.review.batch;
+package kr.geun.o.store.app.ios.rank.batch;
 
-import kr.geun.o.store.app.ios.rank.review.item.IosAppRankItemProcessor;
-import kr.geun.o.store.app.ios.rank.review.item.IosAppRankItemReader;
-import kr.geun.o.store.app.ios.rank.review.item.IosAppRankItemWriter;
-import kr.geun.o.store.app.ios.rank.review.model.IosAppRankPreVO;
-import kr.geun.o.store.app.ios.rank.review.model.IosAppRankVO;
+import kr.geun.o.store.app.ios.rank.item.IosAppRankItemProcessor;
+import kr.geun.o.store.app.ios.rank.item.IosAppRankItemReader;
+import kr.geun.o.store.app.ios.rank.item.IosAppRankItemWriter;
+import kr.geun.o.store.app.ios.rank.model.IosAppRankPreVO;
+import kr.geun.o.store.app.ios.rank.model.IosAppRankVO;
 import kr.geun.o.store.config.batchListener.ChunkExecutionListener;
 import kr.geun.o.store.config.batchListener.StepExecutionNotificationListener;
 import lombok.RequiredArgsConstructor;

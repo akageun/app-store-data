@@ -1,4 +1,4 @@
-package kr.geun.o.store.app.ios.rank.review.model;
+package kr.geun.o.store.app.ios.rank.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,8 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class IosAppRankVO {
+public class IosAppRankPreVO {
 
 	private int tmpValue;
-	private String tmpName;
 }

@@ -1,6 +1,6 @@
-package kr.geun.o.store.app.ios.rank.review.item;
+package kr.geun.o.store.app.ios.rank.item;
 
-import kr.geun.o.store.app.ios.rank.review.model.IosAppRankPreVO;
+import kr.geun.o.store.app.ios.rank.model.IosAppRankPreVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.NonTransientResourceException;
@@ -39,13 +39,13 @@ public class IosAppRankItemReader implements ItemReader<IosAppRankPreVO>, Initia
 
 	//country, id, count
 	//https://rss.itunes.apple.com/api/v1/kr/ios-apps/top-grossing/all/100/explicit.json
-	private final String URL_FORMAT = "https://itunes.apple.com/%s/rss/%s/limit=%d/xml";
+	private static final String URL_FORMAT = "https://rss.itunes.apple.com/api/v1/%s/ios-apps/%s/all/%d/explicit.rss";
 
-	private final int MAX_RANK_VALUE = 100;
+	private static final int MAX_RANK_VALUE = 100;
 
 	private LinkedList<IosAppRankPreVO> getList() {
 
-		String.format(URL_FORMAT, "", "", MAX_RANK_VALUE);
+		String.format(URL_FORMAT, "kr", "top-grossing", MAX_RANK_VALUE); //country, IosRankCategoryCd.class, limit count
 
 		return IntStream.rangeClosed(0, 150).mapToObj(i -> IosAppRankPreVO.builder().tmpValue(i).build()).collect(
 			Collectors.toCollection(LinkedList::new));

@@ -1,6 +1,6 @@
-package kr.geun.o.store.app.ios.rank.review.item;
+package kr.geun.o.store.app.ios.rank.item;
 
-import kr.geun.o.store.app.ios.rank.review.model.IosAppRankVO;
+import kr.geun.o.store.app.ios.rank.model.IosAppRankVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.InitializingBean;
