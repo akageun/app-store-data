@@ -16,5 +16,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class IosAppRankPreVO {
 
-	private int tmpValue;
+	private String appId;
+	private String countryCd;
+	private String typeCd;
+	private String deviceCd;
+	private String appName;
+	private String appDesc;
+	private String appImg;
+	private String appLink;
+	private String regYmdt;
+	private String modYmdt;
+
+	private String batchTimeId;
+	private int appRank;
 }
